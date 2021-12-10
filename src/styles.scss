@@ -1,0 +1,54 @@
+
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+
+// Palettes.
+$primary-palette: (
+  50: #ffedd7,
+  100: #ffe5c6,
+  200: #ffdcb1,
+  300: #ffcf94,
+  400: #ffc379,
+  500: #f79d31,
+  600: #ff9a1e,
+  700: #ee8b12,
+  800: #df7f09,
+  900: #cc7000,
+  contrast:
+    (
+      50: rgba(black, 0.87),
+      100: rgba(black, 0.87),
+      200: rgba(black, 0.87),
+      300: rgba(black, 0.87),
+      400: rgba(black, 0.87),
+      500: rgba(black, 0.87),
+      600: white,
+      700: white,
+      800: white,
+      900: white,
+    ),
+);
+
+$trankilo-landin-primary: mat.define-palette($primary-palette);
+$trankilo-landin-accent: mat.define-palette(mat.$purple-palette, A200, A100, A400);
+
+$trankilo-landin-warn: mat.define-palette(mat.$red-palette);
+
+$trankilo-landin-theme: mat.define-light-theme((
+  color: (
+    primary: $trankilo-landin-primary,
+    accent: $trankilo-landin-accent,
+    warn: $trankilo-landin-warn,
+  )
+));
+
+@include mat.all-component-themes($trankilo-landin-theme);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, sans-serif; }
